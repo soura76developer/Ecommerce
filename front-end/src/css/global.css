@@ -1,0 +1,117 @@
+:root{
+    --logo_colour:#ff4252;
+    --var_gray:#C1C8CE;
+    --lite_gray:#F1F1F1;
+    --header_blue:#006CFF;
+    --lite_blue:#4780d0;
+    --golden:#FFC000;
+}
+.corousel_sizes{
+    width: 40vw;
+    height: 40vh;
+}
+
+.headers_style{
+    font-size:30px;
+    color: var(--header_blue);
+    font-weight: 800;
+}
+.plCard{
+    border: solid 2px var(--var_gray);
+    border-radius: 15px;
+    max-height:90vh;
+    min-height:80vh;
+    transition: 0.7s;
+}
+
+.plCard:hover {
+    cursor: pointer;
+    -webkit-box-shadow: 0px 0px 23px -10px var(--logo_colour);
+    -moz-box-shadow: 0px 0px 23px -10px var(--logo_colour);
+    box-shadow: 0px 0px 23px -10px var(--logo_colour);
+    border: 1px solid black;
+
+}
+.crd_name_style{
+    letter-spacing:0.35px;
+    color:#262626;
+    font-weight: 900;
+    font-size: medium;
+}
+.crd_prc_style{
+    /* letter-spacing:0.35px; */
+    color:var(--logo_colour);
+    font-weight: 700;
+    font-size:15px;
+}
+.crd_img_style{
+    width: 50% ;
+    height:25vh;
+}
+.ratings_star{
+    color:var(--golden)
+}
+.temp_header{
+    background-color:var(--lite_blue);
+    color:white;
+    font-size:25px;
+    font-weight:800;
+    border-radius:10px;
+    border-top-right-radius: 35px;
+    border-bottom-left-radius: 30px;
+}
+.filter_box_style{
+    width: 25vw;
+    height: 8vh;
+    border-radius: 10px;
+    border: 2px solid var(--header_blue);
+}
+.show_more_details_sty{
+    border-radius: 7px;
+    font-weight: 700;
+    background-color:var(--header_blue) ;
+    color:var(--lite_gray);
+    border: 1px solid var(--var_gray);
+    width:15vw ;
+    height: 8vh;
+}
+
+.modal_img_style{
+    width:200px;
+    height:200px;
+}
+
+.modal_details_style{
+    font-weight: 500;
+    color: var(--lite_blue);
+}
+
+.filter_box{
+    background-color: #ff4252;
+}
+
+@media screen and (min-width:372px) and (max-width:657px) {
+    .show_more_details_sty{
+        /* border-radius: 7px; */
+        font-weight: 500;
+        font-size: 14px;
+        /* background-color:var(--header_blue) ;
+        color:var(--lite_gray);
+        border: 1px solid var(--var_gray); */
+        width:30vw ;
+        height: 8vh;
+    }
+}
+
+@media screen and (max-width:371px) {
+    .show_more_details_sty{
+        /* border-radius: 7px; */
+        font-weight: 500;
+        font-size: 12px;
+        /* background-color:var(--header_blue) ;
+        color:var(--lite_gray);
+        border: 1px solid var(--var_gray); */
+        width:30vw ;
+        height: 8vh;
+    }
+}
