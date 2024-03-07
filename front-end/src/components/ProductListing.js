@@ -20,6 +20,7 @@ import Modal from 'react-bootstrap/Modal';
 
 const ProductListing = ()=>{
      
+    
     const [modaldata , setModaldata] = useState({});
     const [show, setShow] = useState(false);
 
@@ -44,10 +45,18 @@ const ProductListing = ()=>{
         })
     }
   
-    // filter
+    // filter Function 
+    //In this function,use two JS functions: the first filter and the second filter.
+    //Getting the data from the Redux store through the useSelector method.
+    //Applying filter method on it.
+    //Inside filter function, i used include function, 
+    // Inside includes data I am getting from the "filterParams" state,first setting it to lower case,so that if any data is in uppercase, I convert it to lower case before checking for the data.    // If it gets the match it will return the elements and push it into the array. 
+    //The filter function creates a new array; it does not change the old array.
+
+
      const [filterParams,setFilterParams]=useState("")
 
-     const filtered_data= data.filter((data_flt)=>{
+     const filtered_data= data.filter((data_flt)=>{ 
         if(filterParams != null ){
             if(typeof (filterParams) ==="string"){
                 return data_flt.main_category.toLowerCase().includes(filterParams.toLowerCase());
@@ -57,6 +66,8 @@ const ProductListing = ()=>{
         }
      })
 
+     //This function keep track of the  changes in input field.
+     //And update it to the state.
      function sendUpdatedFltData(e){
         setFilterParams(e.target.value)
      }
@@ -77,6 +88,7 @@ return(
             </div>
             <div className='row mt-1 p-3 gx-5 gy-5'>
                 {
+                    
                     filtered_data.map((value,key)=>{
 
                         const image_data= value.image;
@@ -160,12 +172,8 @@ return(
                                 </div>
                             </div>
                         )
-                      
-                    
                     })
                 }
-                
-             
             </div>
         </div>
     </>
