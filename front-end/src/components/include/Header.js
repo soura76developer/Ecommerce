@@ -26,7 +26,7 @@ const Header = ()=>{
                 >
                     <Nav.Link href="#home">Home</Nav.Link>
                     <Nav.Link href="#features">Store</Nav.Link>
-                    <Nav.Link href="#pricing">Mobile</Nav.Link>
+                    <Nav.Link href="#pricing">Mobile Just Checking Git</Nav.Link>
                 </Nav>
            
                 </Navbar.Collapse>
