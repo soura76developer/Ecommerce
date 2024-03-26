@@ -9,31 +9,48 @@ import { faRupeeSign } from '@fortawesome/free-solid-svg-icons';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import {useDispatch,useSelector} from 'react-redux';
 import Modal from 'react-bootstrap/Modal';
+import {increment} from '../redux_elements/slice2.js'
+
 //import { faStarHalfAlt } from '@fortawesome/free-solid-svg-icons'
 //import img1  from "../images/Products/Apple_homepod-mini-white.png"
-// import stacticData from './product.json';
+import stacticData from './product.json';
 // import {increment} from '../redux_elements/slice.js'
 // import Button from 'react-bootstrap/Button';
 
 
-
-
 const ProductListing = ()=>{
-     
-    
+
+    //All variable
+    // var dataSets=[];
+
+    // use Dispatch Function
+    const dispatch=useDispatch();
+
+    //All states
     const [modaldata , setModaldata] = useState({});
     const [show, setShow] = useState(false);
+    const [data , setData] = useState([]);
+
+    useEffect(()=>{
+        setData(dataSets);
+    },[])
+
+
+    //All selector
 
     const dataSets=useSelector((data_from_store)=>{
-        return data_from_store.reducerKey.values;
+        return data_from_store.reducerKey2.values;
     })
-    const dispatch=useDispatch();
     
-    const [data , setData] = useState(dataSets);
-
+    // const [data , setData] = useState(dataSets);
+    const dataApiSets=useSelector((data_from_store)=>{
+        return data_from_store.reducerKey.data;
+    })
+    
+    
+    //Modal Functions
     const handleClose = () => setShow(false);
     
- 
     const handleShow = (e) => {
         setShow(true);
 
@@ -45,7 +62,8 @@ const ProductListing = ()=>{
         })
     }
   
-    // filter Function 
+    //Filter Function
+
     //In this function,use two JS functions: the first filter and the second filter.
     //Getting the data from the Redux store through the useSelector method.
     //Applying filter method on it.
@@ -57,6 +75,7 @@ const ProductListing = ()=>{
      const [filterParams,setFilterParams]=useState("")
 
      const filtered_data= data.filter((data_flt)=>{ 
+        // console.log("Data Comes here")
         if(filterParams != null ){
             if(typeof (filterParams) ==="string"){
                 return data_flt.main_category.toLowerCase().includes(filterParams.toLowerCase());
@@ -71,7 +90,7 @@ const ProductListing = ()=>{
      function sendUpdatedFltData(e){
         setFilterParams(e.target.value)
      }
-    //filter
+    //Filter function
 
 return(
     <>
@@ -88,9 +107,8 @@ return(
             </div>
             <div className='row mt-1 p-3 gx-5 gy-5'>
                 {
-                    
                     filtered_data.map((value,key)=>{
-
+                        // console.log(value);
                         const image_data= value.image;
                         const ratings_var= Number(value.ratings)
                         return(
@@ -143,7 +161,7 @@ return(
                                             Show More
                                         </button>
                                     </div>
-                                    {/* <div className="col-md-12 text-center"> */}
+                                  
                                         <Modal show={show} onHide={handleClose}>
                                             <Modal.Header closeButton>
 
@@ -168,13 +186,33 @@ return(
                                             </Modal.Body>
 
                                         </Modal>
-                                    {/* </div> */}
+                                   
                                 </div>
                             </div>
                         )
                     })
                 }
             </div>
+            
+            {/* For redux thunk purpose*/}
+
+            {/* <div className="row mt-1">
+                <div className="col-md-12">
+                <button onClick={()=>dispatch(fetchApiData())}>Add/reduce</button>
+                <button onClick={()=>dispatch(increment(stacticData))}>Add static json</button>
+                    {
+
+                        dataApiSets.data && dataApiSets.data.map((value,key)=>{
+                            return(
+                                <>
+                                    <p>{value.first_name}</p>
+                                    
+                                </>
+                            )
+                        })
+                    }
+                </div>
+            </div> */}
         </div>
     </>
 )

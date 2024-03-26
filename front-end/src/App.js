@@ -1,5 +1,7 @@
 import {BrowserRouter as Router,Routes,Route} from 'react-router-dom';
 import ProductListing from './components/ProductListing.js';
+import Register from './components/auth-module/Register.js';
+import Login from './components/auth-module/Login.js';
 import './css/global.css';
 
 function App() {
@@ -8,7 +10,9 @@ function App() {
    <>
     <Router>
       <Routes>
-        <Route index element={<ProductListing />} />
+        <Route index element={<Login />} />
+        <Route path="/Register" element={<Register />} />
+        <Route path="/dashBoard" element={<ProductListing />} />
       </Routes>
     </Router>
    </>

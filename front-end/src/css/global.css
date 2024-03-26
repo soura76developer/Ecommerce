@@ -60,6 +60,13 @@
     border-top-right-radius: 35px;
     border-bottom-left-radius: 30px;
 }
+.temp_header_R_btn{
+    background-color:var(--logo_colour);
+    color:white;
+    font-size:15px;
+    font-weight:800;
+    border-radius:10px;
+}
 .filter_box_style{
     width: 25vw;
     height: 8vh;
@@ -89,6 +96,46 @@
 .filter_box{
     background-color: #ff4252;
 }
+.toggle-btn{
+    width:60px;
+    height:23px;
+    border:1px solid black;
+    background-color:white;
+    border-radius: 50px;
+    
+    
+}
+.input_box_style{
+border-radius: 5px;
+}
+
+@keyframes myTbtn{
+    from {margin-left: 2%;}
+    to {margin-left: 60%;}
+}
+
+.toggle-btn-child{
+    width:13px;
+    height:13px;
+    background-color:blue;
+    border-radius: 50%;
+    margin-left: 2%;
+        
+}
+.toggle-btn-child-animated{
+    width:13px;
+    height:13px;
+    background-color:blue;
+    border-radius: 50%;
+    margin-left: 60%;
+    animation:myTbtn;
+    animation-duration: 0.5s;   
+}
+.errMsgStyle{
+    color: red;
+    font-weight: 800;
+}
+
 
 @media screen and (min-width:372px) and (max-width:657px) {
     .show_more_details_sty{
